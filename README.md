@@ -1,2 +1,32 @@
-# hackintosh
-Hackintosh Build: B360-Pro Gaming, i7-8700, Radeon RX 6600, 32GB DDR4 2133MHz
+# B360 i7-8700 RX 6600 Hackintosh Build
+
+[![OpenCore 0.7.8](https://img.shields.io/badge/OpenCore-0.7.8-green)](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.8)
+[![MacOS Monterey 12.5](https://img.shields.io/badge/macOS-12.5-9cf)](https://www.apple.com/macos/monterey/)
+
+> :file_folder: Download latest EFI from [Releases](https://github.com/gburlet/hackintosh/releases)
+
+> **Please Note**: This is a personal build that's configured for my exact hackintosh hardware. YMMV
+
+I followed the [Dortania OpenCore Guide](https://dortania.github.io/getting-started/) and various forum posts to get this operational.
+
+## Hardware Specs
+
+|         Component | Details                                            |
+| ------------: | :------------------------------------------------- |
+|         Board | Asus TUF B360-Pro Gaming (WiFi)                                 |
+|           CPU | Intel Core [i7-8700](https://ark.intel.com/content/www/us/en/ark/products/126686/intel-core-i78700-processor-12m-cache-up-to-4-60-ghz.html) 3.2GHz 12MB (Coffee Lake)  |
+|        Memory | Corsair Vengeance LPX D4 2x16GB (DDR4 2666MHz)      |
+|           NVMe | WD Black gen2 M.2 SSD 250GB                   |
+|  GPU | Gigabyte AMD [Radeon RX 6600](https://www.amazon.ca/GIGABYTE-Graphics-WINDFORCE-Cooling-GV-R66EAGLE-8GD/dp/B09J2NCD2L) 8GB     |
+|         iGPU  | Intel UHD Graphics 630                              |
+| Audio | [Integrated] ALC887-VD Analog + Digital |
+| Ethernet | [Integrated] Intel I219V Gigabit LAN Controller |
+| Wireless | [Integrated]          |
+| Bluetooth | [Integrated]  |
+
+- Total Hackintosh Cost: **$1,032 CAD**
+- Mac Pro Tower 2022 Base Model (Intel Xeon W-1390P, Radeon Pro W5500) Cost: **$7,499 CAD**
+
+## EFI Specs
+
+OpenCore 0.7.8
