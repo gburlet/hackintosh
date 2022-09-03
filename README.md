@@ -21,8 +21,8 @@ I followed the [Dortania OpenCore Guide](https://dortania.github.io/getting-star
 |         iGPU  | Intel UHD Graphics 630                              |
 | Audio | [Integrated] ALC887-VD Analog + Digital |
 | Ethernet | [Integrated] Intel I219V Gigabit LAN Controller |
-| Wireless | [Integrated]          |
-| Bluetooth | [Integrated]  |
+| Wireless | [Integrated] [Intel Wireless-AC 9560](https://www.intel.ca/content/www/ca/en/products/sku/99446/intel-wirelessac-9560/specifications.html)         |
+| Bluetooth | [Integrated] [Intel Wireless-AC 9560](https://www.intel.ca/content/www/ca/en/products/sku/99446/intel-wirelessac-9560/specifications.html) |
 
 - Total Hackintosh Cost: **$1,032 CAD**
 - Mac Pro Tower 2022 Base Model (Intel Xeon W-1390P, Radeon Pro W5500) Cost: **$7,499 CAD**
@@ -30,3 +30,18 @@ I followed the [Dortania OpenCore Guide](https://dortania.github.io/getting-star
 ## EFI Specs
 
 OpenCore 0.7.8
+
+## USB Mapping
+
+Used USBToolkit, followed [this guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/alternatives/usb-mapping-on-windows). You can map prior to installing Mac OS in windows, or insert USBInjectAll.kext to install and check things are working before doing the full mapping.
+
+## Stability
+
+| Feature | Works |
+| USB Ports | :white_check_mark: |
+| Wifi | :white_check_mark: |
+| Bluetooth | ? |
+| Airdrop | ? |
+| Audio | ? |
+| GPU HDMI Audio | :white_check_mark: |
+| Sleep | :x: |
