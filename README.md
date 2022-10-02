@@ -1,6 +1,6 @@
 # B360 i7-8700 RX 6600 Hackintosh Build
 
-[![OpenCore 0.7.8](https://img.shields.io/badge/OpenCore-0.7.8-green)](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.8)
+[![OpenCore 0.8.4](https://img.shields.io/badge/OpenCore-0.8.4-green)](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.8.4)
 [![MacOS Monterey 12.5](https://img.shields.io/badge/macOS-12.5-9cf)](https://www.apple.com/macos/monterey/)
 
 > :file_folder: Download latest EFI from [Releases](https://github.com/gburlet/hackintosh/releases)
@@ -8,6 +8,8 @@
 > **Please Note**: This is a personal build that's configured for my exact hackintosh hardware. YMMV
 
 I followed the [Dortania OpenCore Guide](https://dortania.github.io/getting-started/) and various forum posts to get this operational.
+
+![About_publiic](https://user-images.githubusercontent.com/1033190/193471674-dc5d13c1-2359-4dcf-bb83-a550087990b8.PNG)
 
 ## Hardware Specs
 
@@ -21,27 +23,56 @@ I followed the [Dortania OpenCore Guide](https://dortania.github.io/getting-star
 |         iGPU  | Intel UHD Graphics 630                              |
 | Audio | [Integrated] ALC887-VD Analog + Digital |
 | Ethernet | [Integrated] Intel I219V Gigabit LAN Controller |
-| Wireless | [Integrated] [Intel Wireless-AC 9560](https://www.intel.ca/content/www/ca/en/products/sku/99446/intel-wirelessac-9560/specifications.html)         |
-| Bluetooth | [Integrated] [Intel Wireless-AC 9560](https://www.intel.ca/content/www/ca/en/products/sku/99446/intel-wirelessac-9560/specifications.html) |
+| Wireless | [Fenvi FV-T919](https://www.amazon.ca/gp/product/B08JQ6GPGM) Broadcom BCM94360CD |
+| Bluetooth | [Fenvi FV-T919](https://www.amazon.ca/gp/product/B08JQ6GPGM) Broadcom BCM94360CD |
+| Cooling | Corsair H60 Liquid Cooling |
+
+Note: Asus Tuf B360-Pro Gaming motherboard also has integrated Wifi and Bluetooth [Intel Wireless-AC 9560](https://www.intel.ca/content/www/ca/en/products/sku/99446/intel-wirelessac-9560/specifications.html). Wifi worked with kexts, but Bluetooth (and Airdrop, etc.) did not work no matter what I tried, so I picked up the native Broadcom wireless card instead.
 
 - Total Hackintosh Cost: **$1,032 CAD**
 - Mac Pro Tower 2022 Base Model (Intel Xeon W-1390P, Radeon Pro W5500) Cost: **$7,499 CAD**
 
-## EFI Specs
+## EFI Details
 
-OpenCore 0.7.8
+OpenCore 0.8.4
 
-## USB Mapping
+| Kext  | Notes |
+| ------: | :------- |
+| Lilu | Required, must be first |
+| VirtualSMC | Required, must be second |
+| WhateverGreen | Required for GFX |
+| SMCProcessor | Monitoring Intel CPU temp |
+| SMCSuperIO | Monitoring fan speed |
+| RadeonSensor | Monitoring GPU temp, required by SMCRadeonGPU |
+| SMCRadeonGPU | Monitoring GPU temp |
+| AppleALC | Enable onboard audio ports |
+| IntelMausi | Enabled onboard ethernet network adapter |
+| USBToolBox | Used for USB mapping, required by UTBMap |
+| XCHI-unsupported | Needed for USB port mapping on my mobo |
+| UTBMap | USB Mapping (see below) |
 
-Used USBToolkit, followed [this guide](https://chriswayg.gitbook.io/opencore-visual-beginners-guide/alternatives/usb-mapping-on-windows). You can map prior to installing Mac OS in windows, or insert USBInjectAll.kext to install and check things are working before doing the full mapping.
+### USB Mapping
+
+You'll **100%** need to do your own USB Mapping on your machine or the hackintosh will not work. Do not just copy paste UTBMap.kext for your build unless you have the **exact** same motherboard.
 
 ## Stability
 
+I was able to get everything working after a lot of fiddling.
+
 | Feature | Works |
+| ------: | :---- |
 | USB Ports | :white_check_mark: |
 | Wifi | :white_check_mark: |
-| Bluetooth | ? |
-| Airdrop | ? |
-| Audio | ? |
-| GPU HDMI Audio | :white_check_mark: |
-| Sleep | :x: |
+| Bluetooth | :white_check_mark: |
+| Airdrop | :white_check_mark: |
+| Airplay | :white_check_mark: |
+| Onboard Audio | :white_check_mark: |
+| GPU HDMI Audio (monitor speakers) | :white_check_mark: |
+| Sleep | :white_check_mark: |
+| Shutdown / Restart | :white_check_mark: |
+
+The biggest issue for this motherboard was that MMIO whitelisting was required for consistent booting. Without going through that process, maybe 1 in 3 boots would result in getting stuck at ([EB|#LOG:EXITBS:START])[https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#stuck-on-eb-log-exitbs-start] when booting. More info on this in the github wiki.
+
+## Install Notes
+
+See the github wiki for more detailed install notes.
