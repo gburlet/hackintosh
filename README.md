@@ -72,10 +72,10 @@ I was able to get everything working after a lot of fiddling.
 | Shutdown / Restart | :white_check_mark: |
 | DRM | :x: |
 
-The biggest issue for this motherboard was that MMIO whitelisting was required for consistent booting. Without going through that process, maybe 1 in 3 boots would result in getting stuck at (EB|#LOG:EXITBS:START)[https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#stuck-on-eb-log-exitbs-start] when booting. More info on this in the github wiki.
+The biggest issue for this motherboard was that MMIO whitelisting was required for consistent booting. Without going through that process, maybe 1 in 3 boots would result in getting stuck at `[EB|#LOG:EXITBS:START]` ([troubleshooting reference](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#stuck-on-eb-log-exitbs-start)) when booting. More info on this in the [github wiki](../../wiki).
 
 DRM like watching Netflix in Safari doesn't work. Works in Chrome/Firefox however and that's what I use so it's OK for me.
 
 ## Install Notes
 
-See the github wiki for more detailed install notes.
+See the [github wiki](../../wiki) for more detailed install notes.
